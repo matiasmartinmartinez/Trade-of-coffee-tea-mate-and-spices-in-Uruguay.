@@ -1,0 +1,22 @@
+---
+title: "Informe"
+author: "Martínez Matías"
+date: "25 de julio de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Introducción 
+ 
+El presente informe presenta un análisis estadístico con énfasis descriptivo sobre el comercio de café,té, mate y otras especias en el territorio uruguay para el período comprendido entre 1994 y 2016.
+Se utilizan diversas técnicas de descripción y visualización de los datos, con gran aplicación del software estadísitico R.
+Asimismo, se pretende generar visualizaciones intercativas en las cuales el usuario pueda explorar los datos a gusto, responder cuestionamientos propios o generales, y divulgar el informe de manera sencilla. Para lo anteriormente citado, el empleo del paquete **shiny** poseerá un papel central.
+
+
+## Justificación
+
+La alta importancia de conocer en profundidad el mercado uruguayo lleva a analizar tanto exportaciones como importaciones de distintos productos y sus distintos comportamientos en el transcurso del tiempo. Apreciar conductas variacioones o posibles ciclos en el mismo, posibilita posser mayores conocimientos al momento de una futura decisión. 
