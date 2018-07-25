@@ -1,0 +1,44 @@
+---
+title: "Tidy_Data"
+author: "Martínez Matías"
+date: "25 de julio de 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Librerías
+
+Función que instala y carga paquetes necesarios para correr el código.
+
+```{r}
+ipack <- function( pkg )
+  
+  {
+  new.pkg <-  pkg[ ! (pkg %in% installed.packages()[, "Package"]) ]
+  if ( length(new.pkg) ) 
+    install.packages(
+      new.pkg, dependencies = TRUE )
+  sapply( pkg, require, character.only = TRUE )
+  }
+
+
+packs<- c( "tidyverse", "rmarkdown","xml2","ggmosaic",
+           "plotly", "ggmap", "raster", "rgdal",
+           "knitr", "scales", "lubridate", "devtools",
+           "grid", "gridExtra", "shiny","shinythemes",
+           "methods","XML")
+
+ipack(packs)
+```
+
+
+
+## Base de datos
+
+```{r pressure, echo=FALSE}
+datos<-read.delim("database.txt",sep="|")
+```
+
