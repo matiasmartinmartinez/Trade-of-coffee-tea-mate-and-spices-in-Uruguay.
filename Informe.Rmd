@@ -19,4 +19,9 @@ Asimismo, se pretende generar visualizaciones intercativas en las cuales el usua
 
 ## Justificación
 
-La alta importancia de conocer en profundidad el mercado uruguayo lleva a analizar tanto exportaciones como importaciones de distintos productos y sus distintos comportamientos en el transcurso del tiempo. Apreciar conductas variacioones o posibles ciclos en el mismo, posibilita posser mayores conocimientos al momento de una futura decisión. 
+La alta importancia de conocer en profundidad el mercado uruguayo lleva a analizar tanto exportaciones como importaciones de distintos productos y sus comportamientos en el transcurso del tiempo. Por lo antes mencionado se identifica de sumo valor brindar material analítico de mercado para el territorio uruguayo, con fines de apreciar conductas, variaciones o posibles ciclos en el flujo de los mismos a través del tiempo. Ésto posibilita mayores herramientas al momento de una futura decisión en el plano económico. 
+Debido a esto y a una suntuosa curiosidad por conocer el comportamiento de dichos productos, se propone la exhaustiva exploración de los datos, yuxtapuesta con acordes visualizaciones estadísticas de rigor y precisión.
+  
+
+
+
