@@ -24,4 +24,13 @@ Debido a esto y a una suntuosa curiosidad por conocer el comportamiento de dicho
   
 
 
+## Análisis Exploratorio de Datos
+
+```{r}
+
+aggregate(Quantity ~ Year, data = datos, sum)
+
+aggregate(Quantity ~ Year, data = datos, sum) %>% ggplot(aes(Year,Quantity))+geom_line()
+```
+
 
