@@ -1,7 +1,7 @@
 ---
 title: "Informe"
 author: "Martínez Matías"
-date: "26 de julio de 2018"
+date: "25 de julio de 2018"
 output: html_document
 ---
 
@@ -50,7 +50,7 @@ aggregate(Trade..USD. ~ Year, data = datos, sum)%>%
       Trade..USD.))+
   geom_line()
 
-cor(datos$Weight..kg.,datos$Quantity)
+
 cor(datos$Trade..USD.,datos$Quantity)
 
 
@@ -80,6 +80,27 @@ aggregate(Quantity ~ Year + Flow , data = datos, sum) %>%
       labs(
         x="Commodity"
         )
+    
+    
+  #FILTRAMOS MATE
+    
+ggplotly(
+    aggregate(Quantity ~  Commodity , data = datos, sum) %>% filter(Commodity!="Mate")%>%
+        arrange(desc(Quantity)) %>% 
+        head(10) %>%
+        ggplot(
+            aes(
+                x= reorder( Commodity, -Quantity),
+                y= Quantity))+
+        geom_bar(
+            stat="identity") + 
+        theme(
+            axis.text.x  = 
+                element_blank()) + 
+        labs(
+            x="Commodity"
+        )
+)
 
 ```
 
