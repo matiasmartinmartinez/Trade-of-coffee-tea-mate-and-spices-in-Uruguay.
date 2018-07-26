@@ -1,7 +1,7 @@
 ---
 title: "Informe"
 author: "Martínez Matías"
-date: "25 de julio de 2018"
+date: "26 de julio de 2018"
 output: html_document
 ---
 
@@ -26,11 +26,61 @@ Debido a esto y a una suntuosa curiosidad por conocer el comportamiento de dicho
 
 ## Análisis Exploratorio de Datos
 
+
+```{r}
+load("dataframe.RData")
+ipack(packs)
+```
+
 ```{r}
 
-aggregate(Quantity ~ Year, data = datos, sum)
 
-aggregate(Quantity ~ Year, data = datos, sum) %>% ggplot(aes(Year,Quantity))+geom_line()
+aggregate(Quantity ~ Year, data = datos, sum) %>% 
+  ggplot(
+    aes(
+      Year,
+      Quantity)
+    )+
+  geom_line()
+
+aggregate(Trade..USD. ~ Year, data = datos, sum)%>%
+  ggplot(
+    aes(
+      Year,
+      Trade..USD.))+
+  geom_line()
+
+cor(datos$Weight..kg.,datos$Quantity)
+cor(datos$Trade..USD.,datos$Quantity)
+
+
+aggregate(Quantity ~ Year + Flow , data = datos, sum) %>%
+  ggplot(aes(
+    Year,
+    Quantity,
+    group=Flow,
+    colour=Flow))+
+  geom_line()
+
+
+    aggregate(Quantity ~  Commodity , data = datos, sum) %>%
+      arrange(desc(Quantity)) %>% 
+      head(10) %>%
+      ggplot(
+        aes(
+          x= reorder( abbreviate (Commodity,method = "both",use.classes = F),
+                   -Quantity),
+          y= Quantity))+
+      geom_bar(
+        stat="identity") + 
+      theme(
+        axis.text = 
+          element_text(
+            colour="grey32")) + 
+      labs(
+        x="Commodity"
+        )
+
 ```
 
 
