@@ -5,7 +5,7 @@ date: "25 de julio de 2018"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -104,4 +104,14 @@ ggplotly(
 
 ```
 
+```{r}
+
+ggplotly(
+aggregate(Quantity ~ Year + Commodity ,data=datos,sum) %>%
+  ggplot(aes(
+    x=Year,
+    y=Quantity,
+    group=Commodity)) + geom_line()
+)
+```
 
