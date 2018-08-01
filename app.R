@@ -40,17 +40,35 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   
+  commodityInput<-reactive({input$commodity})
   
    
    output$timeseries <- renderPlotly({
      
+     
+     if (is.null(commodityInput())){
+       ggplotly(
+         aggregate(Quantity ~ Year + Commodity ,data=datos,sum) %>% 
+           ggplot(aes(
+             x=Year,
+             y=Quantity,
+             group=Commodity)) + geom_line()
+       )
+       
+     }
+     else
+     {
+       
      ggplotly(
-       aggregate(Quantity ~ Year + Commodity ,data=datos,sum) %>%
+       aggregate(Quantity ~ Year + Commodity ,data=datos,sum) %>% 
+         filter(Commodity%in%commodityInput()) %>%
          ggplot(aes(
            x=Year,
            y=Quantity,
            group=Commodity)) + geom_line()
      )
+   }
+     
      
    })
    
