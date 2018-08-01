@@ -15,41 +15,41 @@ ui <- fluidPage(
    sidebarLayout(
      
      sidebarPanel(
-       selectInput()
+       
+       selectInput(
+         "commodity",
+         "Choise Commodity:", 
+         choices = c(names( table(datos$Commodity) ) ),
+         multiple = TRUE)
+       
        ),
+     
      mainPanel(
-       plotlyOutput("kg")
+       plotlyOutput("timeseries")
        )
       #mainP
      
      )
    #sdL
    
-   
+  
    
    )
 #FluidPage
 
 
 server <- function(input, output) {
+  
+  
    
-   output$kg <- renderPlotly({
+   output$timeseries <- renderPlotly({
+     
      ggplotly(
-       aggregate(Quantity ~  Commodity , data = datos, sum) %>% filter(Commodity!="Mate")%>%
-         arrange(desc(Quantity)) %>% 
-         head(10) %>%
-         ggplot(
-           aes(
-             x= reorder( Commodity, -Quantity),
-             y= Quantity))+
-         geom_bar(
-           stat="identity") + 
-         theme(
-           axis.text.x  = 
-             element_blank()) + 
-         labs(
-           x="Commodity"
-         )
+       aggregate(Quantity ~ Year + Commodity ,data=datos,sum) %>%
+         ggplot(aes(
+           x=Year,
+           y=Quantity,
+           group=Commodity)) + geom_line()
      )
      
    })
